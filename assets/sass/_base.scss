@@ -566,3 +566,8 @@ textarea,
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
+#wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
