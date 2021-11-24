@@ -57,13 +57,24 @@ body {
 }
 
 /**
-* Correct the font size and margin on `h1` elements within `section` and
+* Correct the font size and margin on `F` elements within `section` and
 * `article` contexts in Chrome, Edge, Firefox, and Safari.
 */
 
 h1 {
-  font-size: 2em;
+  font-size: 3.36em;
   margin: 0.67em 0;
+}
+
+h2 {
+  font-size: 2.8em;
+}
+h3 {
+  font-size: 2.24em;
+}
+
+p {
+  font-size: 1.2em;
 }
 
 /* Grouping content
@@ -115,7 +126,8 @@ main {
 */
 
 nav ol,
-nav ul {
+nav ul,
+ul {
   list-style: none;
   padding: 0;
 }
@@ -226,6 +238,7 @@ iframe {
 */
 
 img {
+  max-width: 100%;
   border-style: none;
 }
 
@@ -571,3 +584,11 @@ textarea,
   overflow: hidden;
 }
 
+
+
+
+// 追加
+
+figure {
+  margin: 0;
+}
