@@ -25,13 +25,10 @@
 /**/
 
 
-#spacer {
-  height: 1000px;
-}
-
 
 /*  common
 /*----------------------------------*/
+
 
   :root {
     font-size: 16px;
@@ -45,18 +42,27 @@
     background-size: 22px 22px;
   }
 
+  #wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
   section.general {
 
     > .inner {
       max-width: 1080px;
       margin: auto;
+
+      @include only-sp(){
+        padding: 2%;
+      }
     }
 
     .secthead {
       position: relative;
         z-index: 1;
       line-height: 1;
-      font-size: 4em;
+      @include switch-font-size(10vw, 4em);
       color: $c-primary;
 
       &::after {
@@ -79,6 +85,7 @@
     z-index: 1;
     padding: .5em 0 .5em .8em;
     font-size: 2.4em;
+    @include switch-font-size(1.5em, 2.4em);
     font-weight: bold;
     color: $c-primary;
     overflow: hidden;
@@ -97,6 +104,13 @@
       transform: rotate(-45deg);
     }
 
+  }
+
+  .only-sp {
+    @include only-pc(){ display: none }
+  }
+  .only-pc {
+    @include only-sp(){ display: none }
   }
 
 
@@ -126,7 +140,13 @@
 
     .container {
       display: flex;
+      flex-direction: row-reverse;
       padding: 5em 0;
+
+      @include only-sp(){
+        display: block;
+        padding: 2em 8%;
+      }
 
       .content {
         flex: 45%;
@@ -141,10 +161,18 @@
           display: flex;
           margin-top: 2em;
 
+          @include only-sp(){
+            margin-top: 0;
+          }
+
           .left {
             flex: 50%;
             padding: .2em 0;
-            font-size: 1.8em;
+            @include switch-font-size(1.2em, 1.8em);
+
+            @include only-sp(){
+              line-height: 1.8;
+            }
 
             > span {
               display: block;
@@ -166,6 +194,9 @@
                 z-index: 1;
               bottom: 0;
               line-height: 1;
+              @include switch-font-size(.7em, 1em);
+
+
 
               .large {
                 display: inline-block;
@@ -201,6 +232,8 @@
         }
         .description {
           margin-top: 2em;
+          @include switch-font-size(.7em, 1em);
+
         }
         .bottom {
           margin-top: 2em;
@@ -214,6 +247,12 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, .65);
             background: $c-secondary;
             color: #fff;
+
+            @include only-sp(){
+              width: 100%;
+              padding: .4em 0;
+              font-size: 1.5em;
+            }
           }
         }
 
@@ -222,8 +261,6 @@
         flex: 55%;
       }
     }
-
-
   }
 
 
@@ -232,12 +269,15 @@
 
   .cta {
     padding: 1em 0;
-
     background: #9AA7B2;
+
+    @include only-sp(){
+      padding: 0em 0 1em;
+    }
 
     > .inner {
       padding: 1em;
-      font-size: 2em;
+      @include switch-font-size(1.5em, 2em);
       text-align: center;
       font-weight: bold;
       //background: $c-primary;
@@ -246,6 +286,14 @@
       background-size: 96% auto;
       background-position: left center;
       color: #fff;
+
+      @include only-sp(){
+        background-size: 100% 40%;
+        background-position: left bottom;
+        //background: $c-primary;
+        padding: .5em 0 1em;
+
+      }
 
 
 
@@ -286,15 +334,24 @@
       padding: 3em 0;
       position: relative;
       z-index: 10;
+
+      @include only-sp() {
+        padding: 2em 2%;
+      }
     }
 
     .caption {
       text-align: center;
       margin: 0;
       font-size: 3em;
-      //font-weight: normal;
       line-height: 2;
       letter-spacing: .2em;
+
+      @include only-sp(){
+        font-size: 1.35em;
+        line-height: 3;
+
+      }
 
       > .inner {
         display: inline-block;
@@ -315,20 +372,29 @@
 
     .container {
       display: flex;
-      margin: 3em 002em;
+      flex-direction: row-reverse;
+      margin: 3em 2em;
+
+      @include only-sp(){
+        display: block;
+        margin: 3em 0;
+      }
 
       .content {
         flex: 55% 1 1;
 
         > .inner {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
-        }
 
+          @include only-pc(){
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+          }
+        }
         p {
           line-height: 2.5;
-          font-size: 1.2em;
+          @include switch-font-size(.8em, 1.2em);
 
           &:nth-child(n+2){
             margin-top: 1em;
@@ -371,7 +437,7 @@
   #problem {
 
     .caption {
-      font-size: 3em;
+      @include switch-font-size(6vw, 3em);
       font-weight: bold;
       text-align: center;
       color: $c-primary;
@@ -380,6 +446,10 @@
     .problem-list {
       display: flex;
       margin-top: 2em;
+
+      @include only-sp(){
+        display: block;
+      }
 
       > li {
         flex: 1 1;
@@ -395,6 +465,11 @@
           background-position: center;
           background-repeat: no-repeat;
           background-color: #fff;
+
+          @include only-sp(){
+            width: 150px;
+            height: 150px;
+          }
 
           > img {
             display: none;
@@ -419,6 +494,9 @@
           font-weight: bold;
           font-size: 1.35em;
           color: $c-primary;
+
+          @include only-sp(){}
+          padding: 1em 0 2em;
         }
       }
     }
@@ -434,6 +512,7 @@
       .title {
         font-weight: bold;
         font-size: 2.4em;
+        @include switch-font-size(6vw, 2.4em);
         color: $c-primary;
 
         > * {
@@ -467,6 +546,10 @@
       .container {
         display: flex;
 
+        @include only-sp(){
+          display: block;
+        }
+
         &.reverse {
           flex-direction: row-reverse;
         }
@@ -474,11 +557,15 @@
         .image {
           flex: 35% 0 0;
           margin: 0 1em;
+
+          @include only-sp(){
+            margin: 0 15%;
+          }
         }
         .description {
           flex: 65% 1 1;
           padding: .5em;
-          font-size: 1.5em;
+          @include switch-font-size(1.15em, 1.5em);
           color: $c-primary;
         }
 
@@ -494,12 +581,23 @@
     background: $c-primary;
     color: #fff;
 
+    @include only-sp(){
+      padding: 2% 0 5%;
+    }
+
     .secthead {
       color: #fff;
     }
     .caption {
       font-size: 2em;
+      @include switch-font-size(1.5em, 2em);
       text-align: center;
+
+      > span {
+        @include only-sp(){
+          display: block;
+        }
+      }
 
       .acccent {
         font-size: 1.5em;
@@ -512,6 +610,11 @@
 
       > img {
         width: 86%;
+
+        @include only-sp(){
+          width: 100%;
+          margin: 5% 0;
+        }
       }
     }
   }
@@ -521,17 +624,32 @@
 /*----------------------------------*/
 
   #comparison {
-    padding-bottom: 5em;
+    @include only-pc(){
+
+      padding-bottom: 5em;
+    }
+
+
+    .container {
+
+      @include only-sp(){
+        overflow-x: scroll;
+        padding: 10% 0 15%;
+      }
+    }
 
     .comparison-table {
       margin-top: 2em;
-      font-size: 1.8em;
+      @include switch-font-size(1.15em, 1.8em);
+
+      @include only-sp(){
+        width: 165%;
+      }
 
       thead tr {
         th {
           border: solid 3px $c-primary;
           color: #fff;
-
 
           &:nth-child(1) {
             border: none 0;
@@ -548,6 +666,10 @@
                 bottom: 0;
                 left: 0;
                 z-index: 10;
+
+              @include only-sp(){
+                width: 100%;
+              }
             }
             &::after {
               content: "";
@@ -617,7 +739,10 @@
 
     .result-list {
       display: flex;
-      //justify-content: space-between;
+
+      @include only-sp(){
+        display: block;
+      }
 
       > li {
         flex: 1 1;
@@ -627,8 +752,18 @@
         background: #fff;
         box-shadow: 5px 7px 0px rgba(0, 0, 0, .5);
 
+        @include only-sp(){
+          width: 90%;
+          margin: auto;
+          padding:5%  5%;
+        }
+
         &:nth-child(n+2){
           margin-left: 2em;
+
+          @include only-sp(){
+            margin: 1em auto 0;
+          }
         }
 
         .title {
@@ -638,17 +773,25 @@
           color: #4d4d4d;
         }
         .thumbnail {
-          //padding: 0 1em;
           height: 180px;
+          overflow: hidden;
+          text-align: center;
+
+          @include only-sp(){
+            height: 150px;
+          }
 
           > img {
-            display: block;
             height: 100%;
             width: auto;
           }
         }
         .content {
           margin-top: 1em;
+
+          @include only-sp(){
+            text-align: center;
+          }
 
           > span {
             display: block;
@@ -673,6 +816,7 @@
     padding-bottom: 3em;
 
     .faq-list {
+      @include switch-font-size(.6em, 1em);
 
       dt {
         display: flex;
@@ -756,6 +900,7 @@
     z-index: 100;
     width: 100vw;
     height: 100vh;
+    padding: 4%;
     background: rgba(255, 255, 255, .8);
 
     > .inner {
@@ -768,6 +913,10 @@
       padding: 2em 8em 4em;
       border: solid 4px $c-primary;
       background: #fff;
+
+      @include only-sp(){
+        padding: 5% 5% 15%;
+      }
 
       .title {
         font-size: 2em;
@@ -790,6 +939,7 @@
           display: block;
           width: 100%;
           height: 3em;
+          padding-left: .5em;
           border: solid 2px $c-primary;
         }
       }
