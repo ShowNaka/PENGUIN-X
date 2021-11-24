@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+@mixin centerfix-v($child-height: 100%) {
+
+  overflow: hidden;
+  
+  > * {
+    display: block;
+    height: $child-height;
+    max-width: none;
+    position: relative;
+      left: 50%;
+      top: 0;
+    transform: translateX(-50%);
+  }
+}
+@mixin centerfix-h() {
+
+  overflow: hidden;
+
+  > * {
+    display: block;
+    width: 100%;
+    position: relative;
+      top: 50%;
+      left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin button500 {
+	@include nonappearance();
+	padding: .4em 1em;
+  border-radius: 6px;
+}
+@mixin button300 {
+  @include nonappearance();
+  padding: .6em .8em;
+  font-size: 85%;
+  border-radius: 6px;
+}
+@mixin button200 {
+  @include nonappearance();
+  padding: .5em .6em;
+  font-size: 85%;
+  border-radius: 6px;
+}
+@mixin button100 {
+  @include nonappearance();
+  padding: .2em .5em;
+  font-size: 85%;
+  border-radius: 6px;
+}
+
+@mixin switching-table {
+
+	@media screen and (max-width: $default-bp) {
+		display: block;
+		table, thead, tbody, tfoot,
+		tr, th, td {
+			display: block;
+		}
+	}
+}
+@mixin button-container {
+  padding: 5% 0;
+  text-align: center;
+
+  button {
+  	margin: 0 2%;
+  }
+}
+@mixin basic-form {
+
+	table {
+		@include switching-table;
+
+		th {
+			padding: .4em .2em;
+			// sp
+			@media screen and (max-width: $default-bp) {
+				text-align: left;
+			}
+			// pc
+			@media screen and (min-width: $default-bp) {
+				width: 30%;
+			}
+		}
+		td {
+			// pc
+			@media screen and (min-width: $default-bp) {
+				padding: .4em .2em;
+			}
+		}
+		tr:nth-of-type(n+2) {
+			margin-top: 4%;
+			// pc
+			@media screen and (min-width: $default-bp) {
+				border-top: solid 1px #ccc;
+			}
+		}
+	}
+	button {
+		@include button500;
+	}
+	input {
+		border-radius: 3px;
+		padding: .2em .5em;
+		width: 100%;
+		@media screen and (max-width: $default-bp) {
+		}
+	}
+	textarea {
+		border-radius: 3px;
+		padding: .2em .5em;
+		width: 100%;
+		@media screen and (max-width: $default-bp) {
+		}
+	}
+	.buttons {
+		@include button-container();
+	}
+
+
+}
+
+// フロートレイアウトのclearfix
+@mixin clearfix {
+
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+/**
+ * spとpcでフォントサイズを２段階で変更
+ */
+@mixin switch-font-size($sp, $pc: $sp, $bp: $default-bp) {
+
+	@media screen and (max-width: $bp) {
+		font-size: $sp;
+	}
+
+	@media screen and (min-width: $bp) {
+		font-size: $pc;
+	}
+}
+
+@mixin only-pc($bp: $default-bp ) {
+
+	@media screen and (min-width: $bp) {
+		@content;
+	}
+}
+
+@mixin only-sp($bp: $default-bp ) {
+
+	@media screen and (max-width: $bp) {
+		@content;
+	}
+}
+
+
+@mixin nonappearance {
+
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	text-decoration: none;
+	color: inherit;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	input {
+
+	margin: 0;
+		padding: 0;
+		background: none;
+		border: none;
+		border-radius: 0;
+		outline: none;
+		text-decoration: none;
+		color: inherit;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}
