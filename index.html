@@ -90,7 +90,8 @@
 
         <section class="cta">
             <div class="inner">
-                <span id="">最短翌日から配信開始！</span>
+                <span class="caption">最短翌日から配信開始！</span>
+                <a href="tel:0362789054" class="make-phone-call" type="button">お電話でお問い合わせ</a>
                 <button class="contact-button" type="button">まずは無料で資料請求</button>
             </div>
         </section>
@@ -198,7 +199,8 @@
 
         <section class="cta">
             <div class="inner">
-                <span>最短翌日から配信開始！</span>
+                <span class="caption">最短翌日から配信開始！</span>
+                <a href="tel:0362789054" class="make-phone-call" type="button">お電話でお問い合わせ</a>
                 <button class="contact-button" type="button">まずは無料で資料請求</button>
             </div>
         </section>
@@ -367,38 +369,49 @@
 
         <section class="cta">
             <div class="inner">
-                <span>最短翌日から配信開始！</span>
+                <span class="caption">最短翌日から配信開始！</span>
+                <a href="tel:0362789054" class="make-phone-call" type="button">お電話でお問い合わせ</a>
                 <button class="contact-button" type="button">まずは無料で資料請求</button>
             </div>
         </section>
 
     </mian>
 
-    <aside id="contact-form" class="modal">
-        <div class="inner">
+    <aside id="contact-form-modal" class="modal">
+        <div class="inner" id="contact-form-input">
             <h2 class="title">資料請求フォーム</h2>
-            <form action="">
+            <form action="" id="contact-form">
 
                 <div class="row">
-                    <label>貴社名</label>
-                    <input type="text" placeholder="XXX株式会社">
+                    <label>ご担当者様名</label>
+                    <input name="name" type="text" placeholder="ペンギン 太郎" required>
                 </div>
 
                 <div class="row">
-                    <label>貴社名</label>
-                    <input type="text" placeholder="XXX株式会社">
+                    <label>メールアドレス</label>
+                    <input name="email" type="text" placeholder="mail@example.com" required>
                 </div>
 
                 <div class="row">
-                    <label>貴社名</label>
-                    <input type="text" placeholder="XXX株式会社">
+                    <label>お電話番号</label>
+                    <input name="phone" type="text" placeholder="09012345678" required>
                 </div>
 
                 <div class="bottom">
-                    <button>送信する</button>
+                    <button id="contact-form-submit">送信する</button>
                 </div>
 
             </form>
+        </div>
+
+        <div class="inner" id="contact-form-complete">
+            <h2 class="title">資料請求フォーム</h2>
+            <p>
+                この度は資料請求のご依頼を頂きありがとうございました。<br>
+                <br>
+                担当者よりご連絡させていただきますので、しばらくお待ちいただきますようお願いいたします。<br>
+                お急ぎの場合はお電話でのお問い合わせも受け付けております。
+            </p>
         </div>
     </aside>
 

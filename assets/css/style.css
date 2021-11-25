@@ -696,7 +696,7 @@ section.general .secthead {
     font-weight: bold;
     background-image: url("../img/bg/cta_arrow.png");
     background-repeat: no-repeat;
-    background-size: 96% auto;
+    background-size: 96% 90%;
     background-position: left center;
     color: #fff; }
     @media screen and (max-width: 661px) {
@@ -710,7 +710,10 @@ section.general .secthead {
         background-size: 100% 40%;
         background-position: left bottom;
         padding: .5em 0 1em; } }
-    .cta > .inner button {
+    .cta > .inner .caption {
+      display: block;
+      margin-bottom: .5em; }
+    .cta > .inner .make-phone-call {
       margin: 0;
       padding: 0;
       background: none;
@@ -723,11 +726,11 @@ section.general .secthead {
       -moz-appearance: none;
       appearance: none;
       padding: .2em 1em;
-      background: #F4C300;
       border-radius: 10px;
-      box-shadow: 6px 6px 0 #AF8C00;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65); }
-      .cta > .inner button input {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
+      background: tomato;
+      box-shadow: 6px 6px 0 #9f6d64; }
+      .cta > .inner .make-phone-call input {
         margin: 0;
         padding: 0;
         background: none;
@@ -739,6 +742,40 @@ section.general .secthead {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none; }
+    .cta > .inner .contact-button {
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      text-decoration: none;
+      color: inherit;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin-left: .5em;
+      padding: .2em 1em;
+      background: #F4C300;
+      border-radius: 10px;
+      box-shadow: 6px 6px 0 #AF8C00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65); }
+      .cta > .inner .contact-button input {
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        text-decoration: none;
+        color: inherit;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; }
+      @media screen and (max-width: 661px) {
+        .cta > .inner .contact-button {
+          margin-left: 0;
+          margin-top: .8em; } }
 
 /* benefit
 /*----------------------------------*/
@@ -1169,7 +1206,7 @@ section.general .secthead {
 
 /* contact form
 /*----------------------------------*/
-#contact-form {
+#contact-form-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -1179,7 +1216,7 @@ section.general .secthead {
   height: 100vh;
   padding: 4%;
   background: rgba(255, 255, 255, 0.8); }
-  #contact-form > .inner {
+  #contact-form-modal > .inner {
     max-width: 720px;
     position: relative;
     top: 50%;
@@ -1188,21 +1225,23 @@ section.general .secthead {
     padding: 2em 8em 4em;
     border: solid 4px #144280;
     background: #fff; }
+    #contact-form-modal > .inner#contact-form-complete {
+      display: none; }
     @media screen and (max-width: 661px) {
-      #contact-form > .inner {
+      #contact-form-modal > .inner {
         padding: 5% 5% 15%; } }
-    #contact-form > .inner .title {
+    #contact-form-modal > .inner .title {
       font-size: 2em;
       font-weight: bold;
       text-align: center;
       color: #144280; }
-    #contact-form > .inner .row {
+    #contact-form-modal > .inner .row {
       margin: 2em 0; }
-      #contact-form > .inner .row label {
+      #contact-form-modal > .inner .row label {
         display: block;
         font-weight: bold;
         color: #144280; }
-      #contact-form > .inner .row input {
+      #contact-form-modal > .inner .row input {
         margin: 0;
         padding: 0;
         background: none;
@@ -1219,7 +1258,7 @@ section.general .secthead {
         height: 3em;
         padding-left: .5em;
         border: solid 2px #144280; }
-        #contact-form > .inner .row input input {
+        #contact-form-modal > .inner .row input input {
           margin: 0;
           padding: 0;
           background: none;
@@ -1231,9 +1270,9 @@ section.general .secthead {
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none; }
-    #contact-form > .inner .bottom {
+    #contact-form-modal > .inner .bottom {
       text-align: center; }
-      #contact-form > .inner .bottom button {
+      #contact-form-modal > .inner .bottom button {
         margin: 0;
         padding: 0;
         background: none;
@@ -1252,7 +1291,7 @@ section.general .secthead {
         box-shadow: 6px 6px 0 #AF8C00;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
         color: #fff; }
-        #contact-form > .inner .bottom button input {
+        #contact-form-modal > .inner .bottom button input {
           margin: 0;
           padding: 0;
           background: none;

@@ -283,7 +283,7 @@
       //background: $c-primary;
       background-image: url("../img/bg/cta_arrow.png");
       background-repeat: no-repeat;
-      background-size: 96% auto;
+      background-size: 96% 90%;
       background-position: left center;
       color: #fff;
 
@@ -295,16 +295,36 @@
 
       }
 
+      .caption {
+        display: block;
+        margin-bottom: .5em;
+      }
 
-
-      button {
+      .make-phone-call {
         @include nonappearance;
+        padding: .2em 1em;
+        border-radius: 10px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, .65);
+        background: tomato;
+        box-shadow: 6px 6px 0 #9f6d64;
+
+      }
+      .contact-button {
+        @include nonappearance;
+        margin-left: .5em;
         padding: .2em 1em;
         background: $c-secondary;
         border-radius: 10px;
         box-shadow: 6px 6px 0 #AF8C00;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, .65);
+
+        @include only-sp(){
+          margin-left: 0;
+          margin-top: .8em;
+        }
       }
+
+
     }
   }
 
@@ -892,7 +912,7 @@
 /* contact form
 /*----------------------------------*/
 
-  #contact-form {
+  #contact-form-modal {
     display: none;
     position: fixed;
       top: 0;
@@ -913,6 +933,10 @@
       padding: 2em 8em 4em;
       border: solid 4px $c-primary;
       background: #fff;
+
+      &#contact-form-complete {
+        display: none;
+      }
 
       @include only-sp(){
         padding: 5% 5% 15%;

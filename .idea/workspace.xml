@@ -20,15 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4c3495f-b8a1-4a22-98ce-83431e2f31d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/.sass-cache/d5400860aab17ae2662628bde1edfd71ed93787c/_config.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/.sass-cache/d5400860aab17ae2662628bde1edfd71ed93787c/_config.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/.sass-cache/d5400860aab17ae2662628bde1edfd71ed93787c/_content.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/.sass-cache/d5400860aab17ae2662628bde1edfd71ed93787c/_content.scssc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/partials/_content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/partials/_content.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,8 @@
       <updated>1637723111946</updated>
       <workItem from="1637723113065" duration="267000" />
       <workItem from="1637723587504" duration="22143000" />
-      <workItem from="1637746907286" duration="5120000" />
+      <workItem from="1637746907286" duration="5781000" />
+      <workItem from="1637824095496" duration="5545000" />
     </task>
     <servers />
   </component>
