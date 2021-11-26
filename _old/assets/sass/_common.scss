@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* [contents]
+/*----------------------------------*/
+/* 
+/*----------------------------------*/
+/* 
+/*----------------------------------*/
+/* 
+/*----------------------------------*/
+
+/**/
+section.primary {
+  background-color: $c-main;
+  color: #fff;
+}
+
+
+
+section.primary, section.general {
+  padding: 1em;
+  .inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}
+
+.block {
+  display: block;
+}
+
+
+
+.general > .inner > .section-head {
+  color: $c-main;
+}
+
+
+// アンダーライン
+
+.section-head {
+  position: relative;
+  font-weight: bold;
+}
+
+.section-head::before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 0.4em solid $c-accent;
+  z-index: -1;
+}
+
+
+// 斜め線
+
+.title {
+  position: relative;
+  padding-left: 0.5em;
+  color: $c-main;
+}
+.title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1%;
+  left: 0;
+  border-top: 2em solid $c-accent;
+  border-right: 2.5em solid transparent;
+  z-index: -1;
+}
+

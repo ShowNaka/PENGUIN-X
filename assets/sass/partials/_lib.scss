@@ -1,0 +1,464 @@
+@charset "utf-8";
+
+/**
+/* [contents]
+/*----------------------------------*/
+/* table
+/*----------------------------------*/
+/* button
+/*----------------------------------*/
+/* adminToolbar
+/*----------------------------------*/
+/* simpleModal
+/*----------------------------------*/
+/* tab field
+/*----------------------------------*/
+/* animation
+/*----------------------------------*/
+/* 
+/*----------------------------------*/
+
+
+/* table
+/*----------------------------------*/
+
+	/* stripe
+	/*----------------------------------*/
+
+	@mixin table-stripe-1 {
+
+		width: 100%;
+		margin: 3% auto;
+		border: solid 1px #aaa;
+		border-width: 5px 1px;
+
+		tbody tr:nth-of-type(odd) {
+			background: #FAFAFA;
+		}
+
+		tbody tr:nth-of-type(even) {
+			background: #EEE;
+		}
+
+		tbody tr:hover {
+			background: #e0e0e0;
+		}
+
+		tr th {
+			padding: 1% 0;
+		}
+
+		tr td {
+			padding: 1% 2%;
+		}
+
+		thead th {
+			padding: 1% 2%;
+			background: #fff;
+			border-bottom: solid 1px #aaa;
+			text-align: left;
+		}
+	}
+
+
+	/* simple1
+	/*----------------------------------*/
+
+	@mixin table-simple-1( $pixel: 720px ){
+
+		width: 100%;
+		margin: 3% auto;
+
+		caption {
+			padding: 2% 0;
+			text-align: left;
+			font-size: 110%;
+			font-weight: bold;
+			color: #000;
+		}
+		tr {
+			border-bottom: solid 1px #ccc;
+		}
+		tr:last-of-type {
+			border-bottom: none;
+		}
+		th {
+			padding: 2% 0;
+			text-align: left;
+			vertical-align: top;
+			font-size: 100%;
+			font-weight: normal;
+		}
+		td {
+			padding: 2%;
+		}
+		input {
+			border-radius: 0px;
+			border: solid 1px #ccc;
+		}
+
+
+		@media screen and (max-width:$pixel) {
+
+			table.simple1,
+			table.simple1 thead,
+			table.simple1 tbody,
+			table.simple1 tfoot,
+			table.simple1 tr,
+			table.simple1 th,
+			table.simple1 td {
+				display: block;
+			}
+		}
+	}
+
+
+
+/* button
+/*----------------------------------*/
+
+	/* シンプルな白ボタン */
+	button.white{
+			display: inline-block;
+		    padding: 1% 4%;
+		    border: solid 1px #aaa;
+		    border-radius: 5px;
+		    box-shadow: 2px 2px 0 0 #ccc;
+		    background: #F7F7F7;
+		    color: #4D73AA;
+		}
+
+		button.white:hover {
+		    background: #4D73AA;
+		    color: #f7f7f7;
+		}
+
+	/* ホバーで縦に背景色を変更 */
+		button.spreadLengthwise {
+			display: inline-block;
+			position: relative;
+				z-index: 2;
+			background-color: #f39c12;
+			border: 2px solid #f39c12;
+			color: #fff;
+			line-height: 50px;
+
+			-webkit-transition: all .3s;
+		    transition: all .3s;
+		}
+
+		button.spreadLengthwise:hover {
+			background-color: #fff;
+			border-color: #f39c12;
+			color: #f39c12;
+		}
+
+		button.spreadLengthwise::before,
+		button.spreadLengthwise::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 50%;
+			position: absolute;
+				left: 0;
+				z-index: -1;
+			background-color: #f39c12;
+
+			-webkit-transition: all .3s;
+		    transition: all .3s;
+		}
+		button.spreadLengthwise::before {
+			top: 0;
+		}
+		button.spreadLengthwise::after {
+			bottom: 0;
+		}
+		button.spreadLengthwise:hover::before,
+		button.spreadLengthwise:hover::after {
+			height: 0;
+			background-color: #f39c12;
+		}
+
+/* adminToolbar
+/*----------------------------------*/
+
+	/**
+     * コントロールパネルなどで使用するツールバーの仕様をまとめています。
+     * 
+     * JSのライブラリ中にある「adminToolbar」と連動しています。
+     * elemntテンプレート中の「General」にある「adminToolbar」と連動しています。
+     */
+
+	nav#admin-toolbar {
+		width: 100vw;
+		height: auto;
+		position: relative;
+			z-index: 100;
+		background: $c-primary;
+		color: #fff;
+
+		&.sticky {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+
+		> .inner {
+			display: flex;
+				justify-content: space-between;
+			padding: 0 2%;
+		}
+
+		ul.primary {
+			display: flex;
+			margin: 0;
+			padding: 0;
+			width: 70%;
+			cursor: pointer;
+
+			> li {
+				position: relative;
+				white-space: nowrap;
+
+				> a {
+					display: block;
+					text-decoration: none;
+					white-space: nowrap;
+					font-size: 110%;
+					color: #fff;
+
+					&:hover {
+						color: $c-accent;
+					}
+				}
+
+				.pad {
+					padding: 0.8vw;
+				}
+			}
+		}
+		ul.secondary {
+			display: none;
+		    width: 20vw;
+			position: absolute;
+				z-index: 200;
+				top: 100%;
+				left: 0;
+			margin: 0;
+			padding: 0;
+			border: solid 2px #ccc;
+			background: #fff;
+
+			> li {
+			    width: auto;
+
+				> a {
+					display: block;
+				    width: auto;
+					padding: 3% 10%;
+					color: $c-primary;
+					text-decoration: none;
+
+					&:hover {
+						font-weight: bold;
+						color: $c-secondary;
+						background: #f3f3f3;
+					}
+				}
+			}
+		}
+	}
+
+
+
+/* simpleModal
+/*----------------------------------*/
+
+
+    /**
+     * 基本的なモーダルの機能をまとめています。
+     * モーダルとして機能する要素に「modal」クラスを設定し
+     * 直下に「inner」クラスを設定した要素を設置してください。
+     * 
+     * JSのライブラリ中にある「simpleModal」と連動しています。
+     */
+
+    .noscroll {
+        position: fixed;
+    }
+
+	.modal {
+		display: none;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+			z-index: 99999;
+			top: 0;
+			left: 0;
+		background: rgba(255, 255, 255, 0.5);		
+	}
+
+	.modal .inner {
+		width: 80%;
+		height: 96%;
+		margin: 0 auto;
+		padding: 5%;
+		position: relative;
+			top: 50%;
+		border: solid 2px var(--c_sub);
+		transform: translateY(-50%);
+		overflow-y: scroll;
+		background: #fff;
+	}
+
+/* tab field
+/*----------------------------------*/
+
+	.tabSelector {
+		display: flex;
+		position: relative;
+		margin: 0;
+		padding: 0 11px;
+		overflow: hidden;
+	}
+
+	.tabSelector::after {
+		content: "";
+		display: block;
+		width: 100%;
+		position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 5;
+		border-bottom: solid 3px #aaa;
+	}
+
+	.tabSelector > li {
+		flex-grow: 1;
+		position: relative;
+			z-index: 1;
+		padding: 1% 0;
+		transform: translateY(3%);
+			-ms-transform: translateY(3%);
+			-moz-transform: translateY(3%);
+			-webkit-transform: translateY(3%);
+		border: solid 1px #aaa;
+		border-bottom: none;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+		text-align: center;
+	    background: linear-gradient(top, #ECECEC 50%, #D1D1D1 95%);
+		    background:     -ms-linear-gradient(top, #ECECEC 50%, #D1D1D1 95%);
+		    background:    -moz-linear-gradient(top, #ECECEC 50%, #D1D1D1 95%);
+		    background: -webkit-linear-gradient(top, #ECECEC 50%, #D1D1D1 95%);
+	    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+	    text-shadow: 0 1px #FFF;
+	}
+
+	.tabSelector > li:nth-of-type(n+2) {
+		margin-left: -11px;
+	}
+
+	.tabSelector > li::before {
+		content: "";
+		display: block;
+		width: 10px;
+		height: 10px;
+		position: absolute;
+			bottom: 0;
+			left: -11px;
+		border: solid 1px #aaa;
+		border-width: 0 1px 1px 0;
+		border-bottom-right-radius: 10px;
+		box-shadow: 5px 6px 0px 4px #D1D1D1;
+	}
+
+	.tabSelector > li::after {
+		content: "";
+		display: block;
+		width: 10px;
+		height: 10px;
+		position: absolute;
+			bottom: 0;
+			right: -11px;
+		border: solid 1px #aaa;
+		border-width: 0 0 1px 1px;
+		border-bottom-left-radius: 10px;
+		box-shadow: -5px 6px 0px 4px #D1D1D1;
+	}
+
+	.tabSelector > li.current {
+		background: #fff;
+		z-index: 10;
+	}
+
+	.tabSelector > li.current::before {
+		box-shadow: 5px 6px 0px 4px #fff;
+	}
+
+	.tabSelector > li.current::after {
+		box-shadow: -5px 6px 0px 4px #fff;
+	}
+
+
+
+/* animation
+/*----------------------------------*/
+
+
+	.anime_spin {
+		animation: spin 3s linear 0s infinite;
+		-webkit-animation: spin 3s linear 0s infinite;
+	}
+
+			@keyframes spin {
+				0% 		{ transform: rotate(0);  }
+				100% 	{ transform: rotate(720deg); }
+			}
+
+			@-webkit-keyframes spin {
+				0% 		{ transform: rotate(0);  }
+				100% 	{ transform: rotate(720deg); }
+			}
+
+	.anime_yuragi {
+		animation: yuragi 8s linear 0s infinite normal;
+		-webkit-animation: yuragi 8s linear 0s infinite normal;
+	}
+
+			@-webkit-keyframes yuragi {
+
+				0%  	{transform: scale(1.0);}
+				50%  	{transform: scale(1.1);}
+				100%  	{transform: scale(1.0);}
+			}
+
+			@keyframes yuragi {
+
+				0%  	{transform: scale(1.0);}
+				50%  	{transform: scale(1.1);}
+				100%  	{transform: scale(1.0);}
+			}
+
+	.anime_yuragi_slow {
+		animation: yuragi_slow 15s linear 0s infinite normal;
+		-webkit-animation: yuragi_slow 15s linear 0s infinite normal;
+	}
+
+			@-webkit-keyframes yuragi_slow {
+
+				0%  	{transform: scale(1.0);}
+				45%  	{transform: scale(1.1);}
+				50%  	{transform: scale(1.1);}
+				95%  	{transform: scale(1.0);}
+				100%  	{transform: scale(1.0);}
+			}
+
+			@keyframes yuragi_slow {
+
+				0%  	{transform: scale(1.0);}
+				45%  	{transform: scale(1.1);}
+				50%  	{transform: scale(1.1);}
+				95%  	{transform: scale(1.0);}
+				100%  	{transform: scale(1.0);}
+			}

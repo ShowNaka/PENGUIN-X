@@ -1,24 +1,10 @@
-@charset "UTF-8";
+@charset "utf-8";
 
+/* This css is compiled from scss */
 
-@import "base";
-@import "config";
-@import "common";
-@import "main";
-
-
-.box{
-  position: relative;
-  width: 100px;
-  border: solid;
-
-}
-.box::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  border: 23px solid transparent;
-  border-top: 40px solid;
-}
+@import "partials/config";
+@import "partials/normalize";
+@import "partials/mixins";
+//@import "partials/lib";
+//@import "partials/font";
+@import "partials/content";
